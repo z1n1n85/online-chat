@@ -23,12 +23,12 @@ export const Join: FC = () => {
         <div>
             <h1
                 className={s.h1}
-            >join:</h1>
+            >Join</h1>
             <form
                 className={s.form}
             >
                 <input 
-                    className={s.input}
+                    className={`input ${s.input}`}
                     type="text"
                     name="username"
                     placeholder="Your name"
@@ -38,7 +38,7 @@ export const Join: FC = () => {
                     required
                 />
                 <input 
-                    className={s.input}
+                    className={`input ${s.input}`}
                     type="text"
                     name="room"
                     placeholder="Room name"
@@ -48,12 +48,11 @@ export const Join: FC = () => {
                     required
                 />
                 <Link
-                    className={s.button_container} 
                     to={`/room?name=${values[USERNAME]}&room=${values[ROOM]}`}
                     onClick={handleClick}
                 >
                     <button
-                        className={s.button}
+                    className={`button ${s.button}`}
                         type="submit"
                     >
                         Enter room!

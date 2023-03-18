@@ -11,8 +11,8 @@
 }
 
 .content_container{
-    max-width: 350px;
-    max-height: 500px;
+    width: 30%;
+    height: 50%;
     position: relative;
     padding: 50px;
     border: 2px solid black;
@@ -23,7 +23,7 @@
     align-items: center;
 }
 
-.container::after{
+.content_container::after{
     content: '';
     position: absolute;
     z-index: -1;

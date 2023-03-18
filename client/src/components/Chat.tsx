@@ -10,6 +10,9 @@ import {
     IMessage,
 } from "../types/types";
 
+import style from '../styles/Chat.module.css';
+const s = style;
+
 const socket: Socket<ServerToClientEvents, ClientToServerEvents> = io('http://localhost:5000');
 
 export const Chat: FC = () => {
@@ -55,26 +58,40 @@ export const Chat: FC = () => {
     };
 
     return (
-        <div>
-            <div>{params.room}</div>
-            <div> {usersCount} users in this room </div>
-            <button onClick={leftRoom}>
-                Left the room
-            </button>
+        <div className={s.container}>
+            <div className={s.navbar}>
+                <button 
+                    onClick={leftRoom}
+                    className='button'
+                >
+                    Go out
+                </button>
+                <h2 className={s.room_name}>
+                    {params.room}
+                </h2>
+                <div className={s.online}>
+                    {usersCount} online
+                </div>
+            </div>
             <Messages messages={stateMessages} name={params.name}></Messages>
-            <form onSubmit={handleSubmit}>
+            <form 
+                className={s.message_input}
+                onSubmit={handleSubmit}
+            >
                 <input
+                    className={`input ${s.input_text}`}
                     type="text"
                     name="message"
-                    placeholder="What do you want to say?"
+                    placeholder="(°▽°)/"
                     value={message}
                     onChange={handleChange}
                     autoComplete="off"
                     required
                 />
                 <input
+                    className={s.btn_submit}
                     type="submit"
-                    value="Say a message"
+                    value="Say!"
                     onSubmit={handleSubmit}
                 />
             </form>
